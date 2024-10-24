@@ -22,15 +22,10 @@ jobs:
           python-version: '3.9'
       # Deploy to AWS Lambda using AWS CLI
       - name: Deploy to AWS Lambda
-        uses: aws-actions/configure-aws-credentials@v1
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
-
-      - name: python run\
-        env:
-          CI: true
         run: |
           aws lambda velo \
             --function-name YOUR_LAMBDA_FUNCTION_NAME \
