@@ -24,8 +24,8 @@ jobs:
       - name: Package and Deploy to AWS Lambda
         run: |
           zip -r lambda-deployment.zip *
-          aws lambda velo \
-            --function-name YOUR_LAMBDA_FUNCTION_NAME \
+          aws lambda update-function-code \
+            --function-name velo \
             --zip-file fileb://lambda-deployment.zip
 
 
